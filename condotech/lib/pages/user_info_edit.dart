@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EmployerInfo extends StatelessWidget {
-  const EmployerInfo({super.key});
+class UserInfoEdit extends StatelessWidget {
+  const UserInfoEdit({super.key});
 
   @override
   Widget build(BuildContext context) {
