@@ -82,7 +82,9 @@ class Login extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Text(
-                            "Se ainda não for cadastrado entre em contato com seu síndico.", textAlign: TextAlign.center,),
+                          "Se ainda não for cadastrado entre em contato com seu síndico.",
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ],
                   ),
