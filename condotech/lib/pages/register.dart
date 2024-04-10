@@ -13,8 +13,8 @@ class Register extends StatelessWidget {
         title: const Text(style: TextStyle(color: Colors.white), "Login"),
         centerTitle: true,
       ),
-      body: Center(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Center(
           child: Form(
             child: Container(
               decoration: BoxDecoration(
@@ -25,7 +25,12 @@ class Register extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Nome"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text("Nome"),
+                    ],
+                  ),
                   SizedBox(
                     height: 8,
                   ),
@@ -98,6 +103,22 @@ class Register extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: 65,
+        width: double.infinity,
+        color: Paleta.azulEscuro,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(style: TextStyle(color: Colors.white) ,'CondoTech 2024'),
+            const SizedBox(width: 3),
+            const Icon(
+              Icons.copyright,
+              color: Colors.white,
+            ),
+          ],
         ),
       ),
     );
