@@ -12,7 +12,8 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login"),
+        backgroundColor: Paleta.azulEscuro,
+        title: const Text("Login", style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -63,8 +64,26 @@ class Login extends StatelessWidget {
                       ),
                       SizedBox(height: 1),
                       Text("Esqueci minha senha."),
-                      Text(
-                          "Se ainda não for cadastrado entre em contato com seu síndico."),
+                      SizedBox(height: 48),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Paleta.lilasClaro,
+                            textStyle: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(9.0),
+                                side: const BorderSide(
+                                    color: Colors.black, width: 1)),
+                            foregroundColor: Colors.black,
+                          ),
+                          onPressed: () => print("clicou"),
+                          child: Text("Entrar")),
+                      SizedBox(height: 21),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                        child: Text(
+                            "Se ainda não for cadastrado entre em contato com seu síndico.", textAlign: TextAlign.center,),
+                      ),
                     ],
                   ),
                 ),
