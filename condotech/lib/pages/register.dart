@@ -1,4 +1,5 @@
 import 'package:condotech/util/color.dart';
+import 'package:condotech/util/footer.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatelessWidget {
@@ -10,7 +11,7 @@ class Register extends StatelessWidget {
       backgroundColor: Paleta.bgColor,
       appBar: AppBar(
         backgroundColor: Paleta.azulEscuro,
-        title: const Text(style: TextStyle(color: Colors.white), "Login"),
+        title: const Text(style: TextStyle(color: Colors.white), "Primeiro acesso"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -25,12 +26,7 @@ class Register extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text("Nome"),
-                    ],
-                  ),
+                  Text("Nome"),
                   SizedBox(
                     height: 8,
                   ),
@@ -105,22 +101,7 @@ class Register extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 65,
-        width: double.infinity,
-        color: Paleta.azulEscuro,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(style: TextStyle(color: Colors.white) ,'CondoTech 2024'),
-            const SizedBox(width: 3),
-            const Icon(
-              Icons.copyright,
-              color: Colors.white,
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: footer(),
     );
   }
 }
