@@ -22,7 +22,7 @@ class Register extends StatelessWidget {
             child: Form(
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderRadius: const BorderRadius.all(Radius.circular(5)),
                     color: Paleta.lilas),
                 width: 330,
                 height: 497,
@@ -31,11 +31,11 @@ class Register extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 45),
-                      Text("Nome:",
+                      const SizedBox(height: 45),
+                      const Text("Nome:",
                           style: TextStyle(fontWeight: FontWeight.bold)),
-                      SizedBox(height: 8),
-                      Container(
+                      const SizedBox(height: 8),
+                      SizedBox(
                         width: 260.0,
                         height: 38.0,
                         child: TextFormField(
@@ -50,10 +50,10 @@ class Register extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      Text("CPF:",
+                      const Text("CPF:",
                           style: TextStyle(fontWeight: FontWeight.bold)),
-                      SizedBox(height: 8),
-                      Container(
+                      const SizedBox(height: 8),
+                      SizedBox(
                         width: 260.0,
                         height: 38.0,
                         child: TextFormField(
@@ -68,10 +68,10 @@ class Register extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      Text("Digite sua nova senha:",
+                      const Text("Digite sua nova senha:",
                           style: TextStyle(fontWeight: FontWeight.bold)),
-                      SizedBox(height: 8),
-                      Container(
+                      const SizedBox(height: 8),
+                      SizedBox(
                         width: 260.0,
                         height: 38.0,
                         child: TextFormField(
@@ -86,10 +86,10 @@ class Register extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      Text("Digite sua senha novamente:",
+                      const Text("Digite sua senha novamente:",
                           style: TextStyle(fontWeight: FontWeight.bold)),
-                      SizedBox(height: 8),
-                      Container(
+                      const SizedBox(height: 8),
+                      SizedBox(
                         width: 260.0,
                         height: 38.0,
                         child: TextFormField(
@@ -117,7 +117,7 @@ class Register extends StatelessWidget {
                               foregroundColor: Colors.black,
                             ),
                             onPressed: () => print("clicou"),
-                            child: Text("Cadastrar")),
+                            child: const Text("Cadastrar")),
                       )
                     ],
                   ),
