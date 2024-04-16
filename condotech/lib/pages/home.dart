@@ -38,6 +38,7 @@ class Home extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
+            //Infos do user
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -57,6 +58,7 @@ class Home extends StatelessWidget {
             SizedBox(
               height: 23,
             ),
+            //Dados condominio
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -78,18 +80,163 @@ class Home extends StatelessWidget {
                           Text(
                               style:
                                   TextStyle(fontFamily: "Mukta", fontSize: 15),
-                              "R\$1000,00")
+                              "R\$1000,00"),
+                          IconButton(
+                              color: Paleta.azulEscuro,
+                              onPressed: () => print("VIU A CONTA"),
+                              icon: Icon(Icons.remove_red_eye)),
+                          Container(
+                            height: 29,
+                            width: 182,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(9),
+                              color: Paleta.lilasClaro,
+                            ),
+                          ),
                         ],
                       ),
-                      IconButton(
-                          color: Paleta.azulEscuro,
-                          onPressed: () => print("VIU A CONTA"),
-                          icon: Icon(Icons.remove_red_eye))
                     ],
                   ),
                 ),
               ],
-            )
+            ),
+            SizedBox(
+              height: 34,
+            ),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        IconButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Paleta.azulEscuro,
+                              textStyle: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(9)),
+                              foregroundColor: Paleta.lilas,
+                            ),
+                            onPressed: () => print("Foi para pagar"),
+                            icon: Icon(Icons.attach_money_outlined)),
+                        Text("Pagar")
+                      ],
+                    ),
+                    SizedBox(width: 21),
+                    Column(
+                      children: [
+                        IconButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Paleta.azulEscuro,
+                              textStyle: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(9)),
+                              foregroundColor: Paleta.lilas,
+                            ),
+                            onPressed: () => print("Foi para reserva"),
+                            icon: Icon(Icons.handshake_outlined)),
+                        Text("Reservar")
+                      ],
+                    ),
+                    SizedBox(width: 21),
+                    Column(
+                      children: [
+                        IconButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Paleta.azulEscuro,
+                              textStyle: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(9)),
+                              foregroundColor: Paleta.lilas,
+                            ),
+                            onPressed: () => print("Foi para funcionário"),
+                            icon: Icon(Icons.assignment_ind)),
+                        Text("Funcionário")
+                      ],
+                    ),
+                    SizedBox(width: 21),
+                    Column(
+                      children: [
+                        IconButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Paleta.azulEscuro,
+                              textStyle: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(9)),
+                              foregroundColor: Paleta.lilas,
+                            ),
+                            onPressed: () => print("Foi para fórum"),
+                            icon: Icon(Icons.chat)),
+                        Text("Fórum")
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 21,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        IconButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Paleta.azulEscuro,
+                              textStyle: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(9)),
+                              foregroundColor: Paleta.lilas,
+                            ),
+                            onPressed: () => print("Foi para funcionário"),
+                            icon: Icon(Icons.book)),
+                        Text("Regimento")
+                      ],
+                    ),
+                    SizedBox(width: 21),
+                    Column(
+                      children: [
+                        IconButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Paleta.azulEscuro,
+                              textStyle: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(9)),
+                              foregroundColor: Paleta.lilas,
+                            ),
+                            onPressed: () => print("Foi para cadastro"),
+                            icon: Icon(Icons.group_add)),
+                        Text("Cadastro")
+                      ],
+                    ),
+                    SizedBox(width: 21),
+                    Column(
+                      children: [
+                        IconButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Paleta.azulEscuro,
+                              textStyle: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(9)),
+                              foregroundColor: Paleta.lilas,
+                            ),
+                            onPressed: () => print("Foi para cadastro"),
+                            icon: Icon(Icons.note_add)),
+                        Text("NFE's")
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
           ],
         ),
       ),
