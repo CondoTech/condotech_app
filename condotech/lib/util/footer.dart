@@ -13,7 +13,12 @@ Container footer() {
           Icons.copyright,
           color: Colors.white,
         ),
-        Text(style: TextStyle(color: Colors.white), 'CondoTech 2024'),
+        Text(
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+            ' CondoTech 2024'),
         SizedBox(width: 3),
       ],
     ),

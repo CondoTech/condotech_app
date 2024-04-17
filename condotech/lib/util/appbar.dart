@@ -5,6 +5,7 @@ AppBar MinAppBar() {
   return AppBar(
       elevation: 0,
       backgroundColor: Paleta.bgColor,
+      toolbarHeight: 75,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

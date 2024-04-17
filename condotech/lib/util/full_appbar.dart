@@ -5,6 +5,7 @@ AppBar FullAppBar() {
   return AppBar(
       elevation: 0,
       backgroundColor: Paleta.bgColor,
+      toolbarHeight: 85,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -16,7 +17,7 @@ AppBar FullAppBar() {
           Image.asset(
             'assets/images/logo.png',
             fit: BoxFit.contain,
-            height: 50,
+            height: 60,
           ),
           Row(
             children: [
