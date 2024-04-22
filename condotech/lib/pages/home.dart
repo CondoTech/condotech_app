@@ -54,31 +54,64 @@ class Home extends StatelessWidget {
                       borderRadius: BorderRadius.circular(9),
                       color: Paleta.lilas,
                     ),
-                    child: Row(
+                    child: Column(
                       children: [
-                        Column(
+                        Row(
                           children: [
-                            Text(
-                                style: TextStyle(
-                                    fontFamily: "Mukta", fontSize: 11),
-                                "Saldo do condomínio"),
-                            Text(
-                                style: TextStyle(
-                                    fontFamily: "Mukta", fontSize: 15),
-                                "R\$1000,00"),
+                            Container(
+                              margin: EdgeInsets.only(left: 14, top: 14),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                      style: TextStyle(
+                                          fontFamily: "Mukta",
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.bold),
+                                      "Saldo do condomínio"),
+                                  Text(
+                                      style: TextStyle(
+                                          fontFamily: "Mukta",
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                      "R\$1000,00"),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 10),
                             IconButton(
                                 color: Paleta.azulEscuro,
                                 onPressed: () => print("VIU A CONTA"),
                                 icon: Icon(Icons.remove_red_eye)),
-                            Container(
-                              height: 29,
-                              width: 182,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(9),
-                                color: Paleta.lilasClaro,
-                              ),
-                            ),
                           ],
+                        ),
+                        SizedBox(height: 19),
+                        Container(
+                          height: 29,
+                          width: 182,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(9),
+                            color: Paleta.lilasClaro,
+                          ),
+                          child: Container(
+                            margin:
+                                EdgeInsets.only(left: 12, top: 7, bottom: 7),
+                            child: Row(
+                              children: [
+                                Text(
+                                    style: TextStyle(
+                                        fontFamily: "Mukta",
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold),
+                                    "Ver extrato"),
+                                SizedBox(width: 60),
+                                IconButton(
+                                    color: Paleta.azulEscuro,
+                                    onPressed: () => print("Foi pra extrato"),
+                                    icon: Icon(Icons.arrow_right_alt)),
+                              ],
+                            ),
+                          ),
                         ),
                       ],
                     ),
