@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Text smallText(String text, {Color fontColor = Colors.white}) {
+Text smallText(String text, {Color fontColor = Colors.black}) {
   return Text(
     text,
     style: TextStyle(
@@ -11,7 +11,7 @@ Text smallText(String text, {Color fontColor = Colors.white}) {
   );
 }
 
-Text smallTextBold(String text, {Color fontColor = Colors.white}) {
+Text smallTextBold(String text, {Color fontColor = Colors.black}) {
   return Text(
     text,
     style: TextStyle(
@@ -23,7 +23,7 @@ Text smallTextBold(String text, {Color fontColor = Colors.white}) {
   );
 }
 
-Text mediumText(String text, {Color fontColor = Colors.white}) {
+Text mediumText(String text, {Color fontColor = Colors.black}) {
   return Text(
     text,
     style: TextStyle(
@@ -34,7 +34,7 @@ Text mediumText(String text, {Color fontColor = Colors.white}) {
   );
 }
 
-Text mediumTextBold(String text, {Color fontColor = Colors.white}) {
+Text mediumTextBold(String text, {Color fontColor = Colors.black}) {
   return Text(
     text,
     style: TextStyle(
@@ -46,7 +46,7 @@ Text mediumTextBold(String text, {Color fontColor = Colors.white}) {
   );
 }
 
-Text bigText(String text, {Color fontColor = Colors.white}) {
+Text bigText(String text, {Color fontColor = Colors.black}) {
   return Text(
     text,
     style: TextStyle(
@@ -57,7 +57,7 @@ Text bigText(String text, {Color fontColor = Colors.white}) {
   );
 }
 
-Text bigTextBold(String text, {Color fontColor = Colors.white}) {
+Text bigTextBold(String text, {Color fontColor = Colors.black}) {
   return Text(
     text,
     style: TextStyle(
