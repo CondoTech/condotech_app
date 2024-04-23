@@ -1,3 +1,4 @@
+import 'package:condotech/util/text.dart';
 import 'package:flutter/material.dart';
 
 class InformationField extends StatelessWidget {
@@ -15,14 +16,9 @@ class InformationField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        Text(text),
-        const Divider(
-          color: Colors.black,
-        ),
+        smallTextBold(title),
+        smallText(text),
+        const Divider(color: Colors.black),
       ],
     );
   }
