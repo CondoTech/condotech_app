@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
                     ),
                     onPressed: () => print("CONTA DO USER"),
                     child: Icon(Icons.account_circle_outlined)),
-                Text(
+                const Text(
                     style: TextStyle(fontSize: 24, fontFamily: "Mukta"),
                     "Olá, Usuário"),
               ],
@@ -43,12 +43,12 @@ class Home extends StatelessWidget {
 
             //Dados condominio
             Container(
-              margin: EdgeInsets.only(left: 17),
+              margin: const EdgeInsets.only(left: 17),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    height: 99,
+                    height: 100,
                     width: 182,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(9),
@@ -59,8 +59,8 @@ class Home extends StatelessWidget {
                         Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(left: 14, top: 14),
-                              child: Column(
+                              margin: const EdgeInsets.only(left: 14, top: 14),
+                              child: const Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -94,21 +94,23 @@ class Home extends StatelessWidget {
                             color: Paleta.lilasClaro,
                           ),
                           child: Container(
-                            margin:
-                                EdgeInsets.only(left: 12, top: 7, bottom: 7),
+                            padding: EdgeInsets.only(left: 12),
                             child: Row(
                               children: [
-                                Text(
+                                const Text(
                                     style: TextStyle(
                                         fontFamily: "Mukta",
                                         fontSize: 12,
                                         fontWeight: FontWeight.bold),
                                     "Ver extrato"),
-                                SizedBox(width: 60),
-                                IconButton(
-                                    color: Paleta.azulEscuro,
-                                    onPressed: () => print("Foi pra extrato"),
-                                    icon: Icon(Icons.arrow_right_alt)),
+                                Spacer(), // use Spacer
+                                Container(
+                                  padding: const EdgeInsets.only(bottom: 10),
+                                  child: IconButton(
+                                      color: Paleta.azulEscuro,
+                                      onPressed: () => print("Foi pra extrato"),
+                                      icon: Icon(Icons.arrow_right_alt)),
+                                ),
                               ],
                             ),
                           ),
