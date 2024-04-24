@@ -15,13 +15,15 @@ class LoginController {
       var email = controllerEmail.text;
       var password = controllerPassword.text;
       var credential = await _serviceUser.login(email, password);
-      if(credential is String || credential == null){
+      if (credential is String || credential == null) {
         throw Error();
       }
-      final sharedPreferences = await SharedPreferences.getInstance();
-      await sharedPreferences.setString('user', jsonEncode(credential));
-      // Navigator.of(context).pushReplacementNamed('/home');
+      print(credential);
+      // final sharedPreferences = await SharedPreferences.getInstance();
+      // await sharedPreferences.setString('user', jsonEncode(credential));
+      Navigator.of(context).pushReplacementNamed('/home');
     } catch (e) {
+      print(e);
       // GeneralAlert().showErrorModal(context, () {
       //   Navigator.pop(context);
       // }, 'Usuário ou senha incorretos!', 0.05);
