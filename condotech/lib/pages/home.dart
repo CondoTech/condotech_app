@@ -4,6 +4,7 @@ import 'package:condotech/util/text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Home extends StatefulWidget {
@@ -34,17 +35,17 @@ class _HomeState extends State<Home> {
                       backgroundColor: Paleta.azulEscuro,
                       textStyle: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold),
-                      shape: CircleBorder(),
+                      shape: const CircleBorder(),
                       foregroundColor: Paleta.lilas,
                     ),
-                    onPressed: () => print("CONTA DO USER"),
-                    child: Icon(Icons.account_circle_outlined)),
+                    onPressed: () => context.push("/profile"),
+                    child: const Icon(Icons.account_circle_outlined)),
                 const Text(
                     style: TextStyle(fontSize: 24, fontFamily: "Mukta"),
                     "Olá, Usuário"),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 23,
             ),
 
@@ -85,14 +86,14 @@ class _HomeState extends State<Home> {
                                 ],
                               ),
                             ),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             IconButton(
                                 color: Paleta.azulEscuro,
                                 onPressed: () => print("VIU A CONTA"),
-                                icon: Icon(Icons.remove_red_eye)),
+                                icon: const Icon(Icons.remove_red_eye)),
                           ],
                         ),
-                        SizedBox(height: 19),
+                        const SizedBox(height: 19),
                         Container(
                           height: 29,
                           width: 182,
@@ -101,7 +102,7 @@ class _HomeState extends State<Home> {
                             color: Paleta.lilasClaro,
                           ),
                           child: Container(
-                            padding: EdgeInsets.only(left: 12),
+                            padding: const EdgeInsets.only(left: 12),
                             child: Row(
                               children: [
                                 const Text(
@@ -110,13 +111,13 @@ class _HomeState extends State<Home> {
                                         fontSize: 12,
                                         fontWeight: FontWeight.bold),
                                     "Ver extrato"),
-                                Spacer(), // use Spacer
+                                const Spacer(), // use Spacer
                                 Container(
                                   padding: const EdgeInsets.only(bottom: 10),
                                   child: IconButton(
                                       color: Paleta.azulEscuro,
                                       onPressed: () => print("Foi pra extrato"),
-                                      icon: Icon(Icons.arrow_right_alt)),
+                                      icon: const Icon(Icons.arrow_right_alt)),
                                 ),
                               ],
                             ),
@@ -128,7 +129,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 34,
             ),
             Column(
@@ -148,11 +149,11 @@ class _HomeState extends State<Home> {
                               foregroundColor: Paleta.lilas,
                             ),
                             onPressed: () => print("Foi para pagar"),
-                            icon: Icon(Icons.attach_money_outlined)),
-                        Text("Pagar")
+                            icon: const Icon(Icons.attach_money_outlined)),
+                        const Text("Pagar")
                       ],
                     ),
-                    SizedBox(width: 21),
+                    const SizedBox(width: 21),
                     Column(
                       children: [
                         IconButton(
@@ -165,11 +166,11 @@ class _HomeState extends State<Home> {
                               foregroundColor: Paleta.lilas,
                             ),
                             onPressed: () => print("Foi para reserva"),
-                            icon: Icon(Icons.handshake_outlined)),
-                        Text("Reservar")
+                            icon: const Icon(Icons.handshake_outlined)),
+                        const Text("Reservar")
                       ],
                     ),
-                    SizedBox(width: 21),
+                    const SizedBox(width: 21),
                     Column(
                       children: [
                         IconButton(
@@ -181,12 +182,12 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(9)),
                               foregroundColor: Paleta.lilas,
                             ),
-                            onPressed: () => print("Foi para funcionário"),
-                            icon: Icon(Icons.assignment_ind)),
-                        Text("Funcionário")
+                            onPressed: () => context.push("/employer/list"),
+                            icon: const Icon(Icons.assignment_ind)),
+                        const Text("Funcionário")
                       ],
                     ),
-                    SizedBox(width: 21),
+                    const SizedBox(width: 21),
                     Column(
                       children: [
                         IconButton(
@@ -199,13 +200,13 @@ class _HomeState extends State<Home> {
                               foregroundColor: Paleta.lilas,
                             ),
                             onPressed: () => print("Foi para fórum"),
-                            icon: Icon(Icons.chat)),
-                        Text("Fórum")
+                            icon: const Icon(Icons.chat)),
+                        const Text("Fórum")
                       ],
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 21,
                 ),
                 Row(
@@ -223,11 +224,11 @@ class _HomeState extends State<Home> {
                               foregroundColor: Paleta.lilas,
                             ),
                             onPressed: () => print("Foi para funcionário"),
-                            icon: Icon(Icons.book)),
-                        Text("Regimento")
+                            icon: const Icon(Icons.book)),
+                        const Text("Regimento")
                       ],
                     ),
-                    SizedBox(width: 21),
+                    const SizedBox(width: 21),
                     Column(
                       children: [
                         IconButton(
@@ -240,11 +241,11 @@ class _HomeState extends State<Home> {
                               foregroundColor: Paleta.lilas,
                             ),
                             onPressed: () => print("Foi para cadastro"),
-                            icon: Icon(Icons.group_add)),
-                        Text("Cadastro")
+                            icon: const Icon(Icons.group_add)),
+                        const Text("Cadastro")
                       ],
                     ),
-                    SizedBox(width: 21),
+                    const SizedBox(width: 21),
                     Column(
                       children: [
                         IconButton(
@@ -257,22 +258,22 @@ class _HomeState extends State<Home> {
                               foregroundColor: Paleta.lilas,
                             ),
                             onPressed: () => print("Foi para cadastro"),
-                            icon: Icon(Icons.note_add)),
-                        Text("NFE's")
+                            icon: const Icon(Icons.note_add)),
+                        const Text("NFE's")
                       ],
                     ),
                   ],
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 39,
             ),
 
             Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 17),
+                  margin: const EdgeInsets.only(left: 17),
                   child: Row(
                     children: [mediumText("Calendário")],
                   ),
