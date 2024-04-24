@@ -1,12 +1,19 @@
 import 'package:condotech/util/color.dart';
 import 'package:condotech/util/full_appbar.dart';
+import 'package:condotech/util/text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:table_calendar/table_calendar.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,8 +22,8 @@ class Home extends StatelessWidget {
         title: FullAppBar(),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
+      body: ListView(children: [
+        Column(
           children: [
             //Infos do user
             Row(
@@ -261,19 +268,26 @@ class Home extends StatelessWidget {
             SizedBox(
               height: 39,
             ),
-            Container(
-              margin: EdgeInsets.only(left: 45),
-              child: Row(
-                children: [
-                  Text(
-                      style: TextStyle(fontFamily: "Mukata", fontSize: 18),
-                      "Calendário")
-                ],
-              ),
-            )
+
+            Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 17),
+                  child: Row(
+                    children: [mediumText("Calendário")],
+                  ),
+                ),
+                Container(
+                  child: TableCalendar(
+                      focusedDay: DateTime.now(),
+                      firstDay: DateTime.utc(2023, 01, 01),
+                      lastDay: DateTime.utc(2050, 01, 01)),
+                )
+              ],
+            ),
           ],
         ),
-      ),
+      ]),
     );
   }
 }
