@@ -2,8 +2,8 @@ import 'package:condotech/util/footer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import 'package:condotech/util/color.dart';
+import 'package:go_router/go_router.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -23,7 +23,7 @@ class Login extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderRadius: const BorderRadius.all(Radius.circular(5)),
                     color: Paleta.lilas),
                 width: 330,
                 height: 400,
@@ -31,9 +31,9 @@ class Login extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 66.0),
                   child: Column(
                     children: [
-                      Text("Email:"),
-                      SizedBox(height: 8.5),
-                      Container(
+                      const Text("Email:"),
+                      const SizedBox(height: 8.5),
+                      SizedBox(
                         width: 260.0,
                         height: 38.0,
                         child: TextFormField(
@@ -46,10 +46,10 @@ class Login extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Text("Senha:"),
-                      SizedBox(height: 8.5),
-                      Container(
+                      const SizedBox(height: 20),
+                      const Text("Senha:"),
+                      const SizedBox(height: 8.5),
+                      SizedBox(
                         width: 260.0,
                         height: 38.0,
                         child: TextFormField(
@@ -62,9 +62,9 @@ class Login extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 1),
-                      Text("Esqueci minha senha."),
-                      SizedBox(height: 48),
+                      const SizedBox(height: 1),
+                      const Text("Esqueci minha senha."),
+                      const SizedBox(height: 48),
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Paleta.lilasClaro,
@@ -76,11 +76,11 @@ class Login extends StatelessWidget {
                                     color: Colors.black, width: 1)),
                             foregroundColor: Colors.black,
                           ),
-                          onPressed: () => print("clicou"),
-                          child: Text("Entrar")),
-                      SizedBox(height: 21),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                          onPressed: () => context.push("/"),
+                          child: const Text("Entrar")),
+                      const SizedBox(height: 21),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Text(
                           "Se ainda não for cadastrado entre em contato com seu síndico.",
                           textAlign: TextAlign.center,
@@ -90,7 +90,7 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
               Image.asset(
