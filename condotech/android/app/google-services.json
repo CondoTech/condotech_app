@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "276943391656",
+    "project_id": "condo-tech-b7673",
+    "storage_bucket": "condo-tech-b7673.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276943391656:android:f5e8fbb14fc87a06e76b9d",
+        "android_client_info": {
+          "package_name": "com.example.condotech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmZOwgu8f5QY5KKZyvy1flVHxdUuWfHiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
