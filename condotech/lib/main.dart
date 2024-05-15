@@ -1,5 +1,11 @@
-import 'package:condotech/routes.dart';
+import 'package:condotech/pages/home.dart';
 import 'package:flutter/material.dart';
+
+/*
+    IMPORTANTE
+
+    Não faça commit do arquivo main.dart
+*/
 
 void main() {
   runApp(const MyApp());
@@ -10,15 +16,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Flutter Demo',
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primaryColor: Colors.blue,
       ),
-      routerDelegate: routes.routerDelegate,
-      routeInformationParser: routes.routeInformationParser,
-      routeInformationProvider: routes.routeInformationProvider,
+      home: const Home(), // Altere para a página que estiver mexendo
     );
   }
 }
