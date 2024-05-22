@@ -12,7 +12,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-   final _loginController = LoginController();
+  final _loginController = LoginController();
+  bool passwordObscured = true;
 
   @override
   Widget build(BuildContext context) {
@@ -28,20 +29,34 @@ class _LoginState extends State<Login> {
               child: Column(
             children: [
               Container(
+                margin: const EdgeInsets.only(top: 35.0),
                 decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(5)),
+                    borderRadius: const BorderRadius.all(Radius.circular(15)),
                     color: Paleta.lilas),
                 width: 330,
                 height: 400,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 66.0),
+                  padding: const EdgeInsets.only(top: 40.0),
                   child: Column(
                     children: [
-                      const Text("Email:"),
-                      const SizedBox(height: 8.5),
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: 30), // Ajuste conforme necessário
+                          child: Text(
+                            "Email:",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold, // Negrito
+                              fontSize: 16.0, // Tamanho da fonte
+                            ),
+                          ),
+                        ),
+                      ),
                       Container(
                         width: 260.0,
                         height: 38.0,
+                        margin: const EdgeInsets.only(top: 8.5),
                         child: TextFormField(
                           controller: _loginController.controllerEmail,
                           decoration: const InputDecoration(
@@ -53,26 +68,66 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      const Text("Senha:"),
-                      const SizedBox(height: 8.5),
-                      Container(
-                        width: 260.0,
-                        height: 38.0,
-                        child: TextFormField(
-                          controller: _loginController.controllerPassword,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5))),
-                            fillColor: Color.fromRGBO(186, 192, 255, 1),
-                            filled: true,
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: 30.0,
+                              top: 20.0), // Espaçamento ajustado aqui
+                          child: Text(
+                            "Senha:",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold, // Negrito
+                              fontSize: 16.0, // Tamanho da fonte
+                            ),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 1),
-                      const Text("Esqueci minha senha."),
-                      const SizedBox(height: 48),
+                      Container(
+                        width: 260.0,
+                        height: 38.0,
+                        margin: const EdgeInsets.only(
+                            top: 8.5), // Margem superior adicionada aqui
+                        child: TextFormField(
+                          controller: _loginController.controllerPassword,
+                          obscureText: passwordObscured,
+                          onTapOutside: (tap) =>
+                              FocusScope.of(context).unfocus(),
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5))),
+                            fillColor: const Color.fromRGBO(186, 192, 255, 1),
+                            filled: true,
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                  passwordObscured
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                  color: Colors.deepPurple),
+                              onPressed: () {
+                                setState(
+                                    () => passwordObscured = !passwordObscured);
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              left: 35.0), // Espaçamento ajustado aqui
+                          child: Text(
+                            "Esqueci minha senha",
+                            style: TextStyle(
+                              fontSize: 14.0, // Tamanho da fonte
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 40),
                       ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Paleta.lilasClaro,
@@ -99,7 +154,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
               const SizedBox(
-                height: 32,
+                height: 28,
               ),
               Image.asset(
                 "assets/images/logo.png",
