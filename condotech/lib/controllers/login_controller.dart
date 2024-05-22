@@ -3,8 +3,7 @@ import 'package:condotech/services/user_service.dart';
 import 'package:condotech/util/error_alert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-// import '../widgets/error_alert.dart';
+import 'package:localstorage/localstorage.dart';
 
 class LoginController {
   final _serviceUser = UserService();
@@ -19,11 +18,15 @@ class LoginController {
       if (credential is String || credential == null) {
         throw Error();
       }
-      print(credential);
-      // final sharedPreferences = await SharedPreferences.getInstance();
-      // await sharedPreferences.setString('user', jsonEncode(credential));
+      var userMap = {
+        'uid': credential.uid,
+        'email': credential.email,
+      };
+      final sharedPreferences = await SharedPreferences.getInstance();
+      await sharedPreferences.setString('user', jsonEncode(userMap));
       Navigator.of(context).pushReplacementNamed('/home');
     } catch (e) {
+      print(e);
       GeneralAlert().showErrorModal(context, () {
         Navigator.pop(context);
       }, 'Usuário ou senha incorretos!', 0.05);
