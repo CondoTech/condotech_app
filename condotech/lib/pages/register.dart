@@ -1,9 +1,11 @@
+import 'package:condotech/controllers/register_controller.dart';
 import 'package:condotech/util/color.dart';
 import 'package:condotech/util/footer.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatelessWidget {
-  const Register({super.key});
+  Register({super.key});
+  final _registerController = RegisterController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class Register extends StatelessWidget {
                         width: 260.0,
                         height: 38.0,
                         child: TextFormField(
+                          controller: _registerController.controllerCpf,
                           keyboardType: TextInputType.name,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(

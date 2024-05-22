@@ -10,7 +10,7 @@ Map<String, WidgetBuilder> routes() {
     '/login': (context) => const Login(),
     '/home': (context) => const Home(),
     '/perfil': (context) => const Perfil(),
-    '/register': (context) => const Register(),
+    '/register': (context) => Register(),
     // '/column': (context) => const ColumnPage(),
     // '/colrow': (context) => const ColRowPage(),
     // '/tabbar': (context) => const TabBarPage(),

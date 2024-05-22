@@ -5,6 +5,7 @@ import '../util/error_alert.dart';
 
 class RegisterController {
   final _serviceUser = UserService();
+  final controllerCpf = TextEditingController();
   final controllerEmail = TextEditingController();
   final controllerPassword = TextEditingController();
   final controllerConfirmPassword = TextEditingController();
