@@ -27,10 +27,10 @@ class UserService {
       UserCredential credential = await _authFibase.signInWithEmailAndPassword(
           email: email, password: password);
       User? user = credential.user;
-      // var userLoggad = user?.uid;
-      // DocumentSnapshot documentSnapshot =
-      //     await _userFirestore.doc(userLoggad).get();
-      // var userData = documentSnapshot.data();
+      var userLoggad = user?.uid;
+      DocumentSnapshot documentSnapshot =
+          await _userFirestore.doc(userLoggad).get();
+      var userData = documentSnapshot.data();
       return user;
     } on FirebaseAuthException catch (e) {
       return e.message;

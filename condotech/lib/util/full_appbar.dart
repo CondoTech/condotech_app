@@ -1,7 +1,8 @@
+import 'package:condotech/pages/register.dart';
 import 'package:condotech/util/color.dart';
 import 'package:flutter/material.dart';
 
-AppBar FullAppBar() {
+AppBar FullAppBar(BuildContext context) {
   return AppBar(
       elevation: 0,
       backgroundColor: Paleta.bgColor,
@@ -11,13 +12,13 @@ AppBar FullAppBar() {
         children: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications),
             color: Paleta.azulEscuro,
           ),
           Image.asset(
             'assets/images/logo.png',
             fit: BoxFit.contain,
-            height: 60,
+            height: 40,
           ),
           Row(
             children: [
@@ -29,6 +30,13 @@ AppBar FullAppBar() {
               IconButton(
                 onPressed: () {},
                 icon: Icon(Icons.logout),
+                color: Paleta.azulEscuro,
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed('/register');
+                },
+                icon: Icon(Icons.add_box),
                 color: Paleta.azulEscuro,
               )
             ],

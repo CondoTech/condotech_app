@@ -18,12 +18,13 @@ class Register extends StatelessWidget {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(15, 60, 15, 0),
+            padding: const EdgeInsets.fromLTRB(15, 20, 15, 0),
             child: Form(
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(5)),
                     color: Paleta.lilas),
+                margin: const EdgeInsets.only(bottom: 35.0),
                 width: 330,
                 height: 497,
                 child: Padding(

@@ -1,8 +1,6 @@
 import 'package:condotech/util/color.dart';
 import 'package:condotech/util/full_appbar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -12,8 +10,10 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: Paleta.bgColor,
       appBar: AppBar(
-        title: FullAppBar(),
+        title: FullAppBar(context),
+        backgroundColor: Paleta.bgColor,
         centerTitle: true,
+        automaticallyImplyLeading: false, // Remova o botão de voltar
       ),
       body: Center(
         child: Column(
@@ -31,13 +31,13 @@ class Home extends StatelessWidget {
                       foregroundColor: Paleta.lilas,
                     ),
                     onPressed: () => print("CONTA DO USER"),
-                    child: Icon(Icons.account_circle_outlined)),
+                    child: const Icon(Icons.account_circle_outlined)),
                 const Text(
                     style: TextStyle(fontSize: 24, fontFamily: "Mukta"),
                     "Olá, Usuário"),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 23,
             ),
 
