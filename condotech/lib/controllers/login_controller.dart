@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:condotech/services/user_service.dart';
+import 'package:condotech/util/error_alert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,10 +24,9 @@ class LoginController {
       // await sharedPreferences.setString('user', jsonEncode(credential));
       Navigator.of(context).pushReplacementNamed('/home');
     } catch (e) {
-      print(e);
-      // GeneralAlert().showErrorModal(context, () {
-      //   Navigator.pop(context);
-      // }, 'Usuário ou senha incorretos!', 0.05);
+      GeneralAlert().showErrorModal(context, () {
+        Navigator.pop(context);
+      }, 'Usuário ou senha incorretos!', 0.05);
     }
   }
 }
