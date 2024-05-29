@@ -38,8 +38,8 @@ class _UsersListState extends State<UsersList> {
         child: ListView.builder(
           itemCount: userController.users.length, // Número de itens na lista
           itemBuilder: (BuildContext context, int index) {
-            return userData(userController.users[index].username,
-                userController.users[index].cpf);
+            return userData(userController.users[index]['username'],
+                userController.users[index]['cpf']);
           },
         ),
       ),

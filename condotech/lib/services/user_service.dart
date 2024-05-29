@@ -26,7 +26,7 @@ class UserService {
     try {
       QuerySnapshot querySnapshot = await _userFirestore.get();
       var allData = querySnapshot.docs.map((doc) => doc.data()).toList();
-      print(allData);
+      return allData;
     } on FirebaseException catch (e) {
       return e.message;
     }
