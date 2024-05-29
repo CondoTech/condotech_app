@@ -1,6 +1,13 @@
+import 'package:condotech/models/user.dart';
+import 'package:condotech/pages/employer_info.dart';
+import 'package:condotech/pages/employer_register.dart';
+import 'package:condotech/pages/employers_list.dart';
 import 'package:condotech/pages/login.dart';
 import 'package:condotech/pages/home.dart';
 import 'package:condotech/pages/perfil.dart';
+import 'package:condotech/pages/user_info.dart';
+import 'package:condotech/pages/user_info_edit.dart';
+import 'package:condotech/pages/users_list.dart';
 import 'package:flutter/cupertino.dart';
 import '../pages/register.dart';
 
@@ -9,11 +16,14 @@ Map<String, WidgetBuilder> routes() {
     '/': (context) => const Login(),
     '/login': (context) => const Login(),
     '/home': (context) => const Home(),
-    '/perfil': (context) => const Perfil(),
+    '/perfil': (context) => const Perfil(), //user entra pra ver perfil
     '/register': (context) => Register(),
-    // '/column': (context) => const ColumnPage(),
-    // '/colrow': (context) => const ColRowPage(),
-    // '/tabbar': (context) => const TabBarPage(),
-    // '/navmanual': (context) => const NavManualPage(),
+    '/info': (context) => const EmployerInfo(),
+    '/employer-register': (context) => const EmployerRegister(),
+    '/employer-info': (context) => const EmployerInfo(),
+    '/employers': (context) => const EmployersList(),
+    '/users': (context) => const UsersList(),
+    '/user-info': (context) => const UserInfo(), // sindico
+    '/user-edit': (context) => const UserInfoEdit(),
   };
 }

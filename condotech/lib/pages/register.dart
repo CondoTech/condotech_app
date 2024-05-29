@@ -13,8 +13,16 @@ class Register extends StatelessWidget {
       backgroundColor: Paleta.bgColor,
       appBar: AppBar(
         backgroundColor: Paleta.azulEscuro,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         title: const Text(
-            style: TextStyle(color: Colors.white), "Primeiro acesso"),
+          "Primeiro acesso",
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(

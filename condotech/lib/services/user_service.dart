@@ -22,6 +22,16 @@ class UserService {
     }
   }
 
+  dynamic getUsers() async {
+    try {
+      QuerySnapshot querySnapshot = await _userFirestore.get();
+      var allData = querySnapshot.docs.map((doc) => doc.data()).toList();
+      print(allData);
+    } on FirebaseException catch (e) {
+      return e.message;
+    }
+  }
+
   dynamic login(String email, String password) async {
     try {
       UserCredential credential = await _authFibase.signInWithEmailAndPassword(

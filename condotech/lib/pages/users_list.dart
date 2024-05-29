@@ -1,13 +1,31 @@
+import 'package:condotech/controllers/user_controller.dart';
 import 'package:condotech/util/appbar.dart';
 import 'package:condotech/util/color.dart';
 import 'package:condotech/util/footer.dart';
 import 'package:condotech/util/text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class UsersList extends StatelessWidget {
+class UsersList extends StatefulWidget {
   const UsersList({super.key});
+
+  @override
+  State<UsersList> createState() => _UsersListState();
+}
+
+class _UsersListState extends State<UsersList> {
+  UserController userController = UserController();
+
+  void updatedState() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void initState() {
+    userController.getUsers(context);
+    userController.updateState = updatedState;
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +35,13 @@ class UsersList extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: ListView(children: [
-          userData("Cléber", "123"),
-          userData("Cléber", "123"),
-          userData("Cléber", "123"),
-          userData("Cléber", "123"),
-          userData("Cléber", "123"),
-          userData("Cléber", "123"),
-        ]),
+        child: ListView.builder(
+          itemCount: userController.users.length, // Número de itens na lista
+          itemBuilder: (BuildContext context, int index) {
+            return userData(userController.users[index].username,
+                userController.users[index].cpf);
+          },
+        ),
       ),
       bottomNavigationBar: footer(),
     );
@@ -40,33 +57,4 @@ class UsersList extends StatelessWidget {
       onTap: () => print("FOI PRO PERFIL"),
     );
   }
-
-  // Row UserData(String name, String apto) {
-  //   return Row(
-  //     mainAxisAlignment: MainAxisAlignment.center,
-  //     children: [
-  //       Icon(color: Paleta.azulEscuro, size: 60, Icons.account_circle),
-  //       Container(
-  //         padding: EdgeInsets.only(left: 15),
-  //         child: Column(
-  //           crossAxisAlignment: CrossAxisAlignment.start,
-  //           children: [
-  //             Row(
-  //               children: [
-  //                 smallTextBold("Nome: "),
-  //                 smallText(name),
-  //               ],
-  //             ),
-  //             Row(
-  //               children: [
-  //                 smallTextBold("Apto: "),
-  //                 smallText(apto),
-  //               ],
-  //             )
-  //           ],
-  //         ),
-  //       )
-  //     ],
-  //   );
-  // }
 }
