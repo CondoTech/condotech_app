@@ -1,4 +1,6 @@
 import 'package:condotech/models/user.dart';
+import 'package:condotech/pages/bank_statement.dart';
+import 'package:condotech/pages/bank_statement_details.dart';
 import 'package:condotech/pages/cadastroUser.dart';
 import 'package:condotech/pages/detalhesUser.dart';
 import 'package:condotech/pages/employer_info.dart';
@@ -28,5 +30,7 @@ Map<String, WidgetBuilder> routes() {
     '/users-register': (context) => const CadastroUser(),
     '/user-info': (context) => const UserDetails(), // sindico
     '/user-edit': (context) => const UserInfoEdit(),
+    // '/details-bank': (context) => BankStatementDetails(),
+    '/bank': (context) => const BankStatement(),
   };
 }
