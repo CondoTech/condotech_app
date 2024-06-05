@@ -9,6 +9,7 @@ import 'package:condotech/pages/employers_list.dart';
 import 'package:condotech/pages/listaFunc.dart';
 import 'package:condotech/pages/login.dart';
 import 'package:condotech/pages/home.dart';
+import 'package:condotech/pages/nfe.dart';
 import 'package:condotech/pages/perfil.dart';
 import 'package:condotech/pages/user_info_edit.dart';
 import 'package:condotech/pages/users_list.dart';
@@ -27,10 +28,11 @@ Map<String, WidgetBuilder> routes() {
     '/employer-info': (context) => const EmployerInfo(),
     '/employers': (context) => const EmployeeList(),
     '/users': (context) => const UsersList(),
-    '/users-register': (context) => const CadastroUser(),
+    '/user-register': (context) => const CadastroUser(),
     '/user-info': (context) => const UserDetails(), // sindico
     '/user-edit': (context) => const UserInfoEdit(),
     // '/details-bank': (context) => BankStatementDetails(),
     '/bank': (context) => const BankStatement(),
+    '/nfe': (context) => const Nfe(),
   };
 }

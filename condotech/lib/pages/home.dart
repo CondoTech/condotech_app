@@ -128,7 +128,12 @@ class _HomeState extends State<Home> {
                                   padding: const EdgeInsets.only(bottom: 10),
                                   child: IconButton(
                                       color: Paleta.azulEscuro,
-                                      onPressed: () => print("Foi pra extrato"),
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          '/bank',
+                                        );
+                                      },
                                       icon: Icon(Icons.arrow_right_alt)),
                                 ),
                               ],
@@ -194,7 +199,12 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(9)),
                               foregroundColor: Paleta.lilas,
                             ),
-                            onPressed: () => print("Foi para funcionário"),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                '/employers',
+                              );
+                            },
                             icon: Icon(Icons.assignment_ind)),
                         Text("Funcionário")
                       ],
@@ -213,7 +223,7 @@ class _HomeState extends State<Home> {
                             ),
                             onPressed: () => print("Foi para fórum"),
                             icon: Icon(Icons.chat)),
-                        Text("Fórum")
+                        Text("FAQ")
                       ],
                     ),
                   ],
@@ -252,7 +262,12 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(9)),
                               foregroundColor: Paleta.lilas,
                             ),
-                            onPressed: () => print("Foi para cadastro"),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                '/user-register',
+                              );
+                            },
                             icon: Icon(Icons.group_add)),
                         Text("Cadastro")
                       ],
@@ -269,9 +284,36 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(9)),
                               foregroundColor: Paleta.lilas,
                             ),
-                            onPressed: () => print("Foi para cadastro"),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                '/nfe',
+                              );
+                            },
                             icon: Icon(Icons.note_add)),
                         Text("NFE's")
+                      ],
+                    ),
+                    SizedBox(width: 21),
+                    Column(
+                      children: [
+                        IconButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Paleta.azulEscuro,
+                              textStyle: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(9)),
+                              foregroundColor: Paleta.lilas,
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                '/users',
+                              );
+                            },
+                            icon: Icon(Icons.person_2)),
+                        Text("Usuários")
                       ],
                     ),
                   ],
