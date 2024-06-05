@@ -1,3 +1,4 @@
+import 'package:condotech/pages/cadastroUser.dart';
 import 'package:condotech/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.blue,
       ),
-      home: const Home(), // Altere para a página que estiver mexendo
+      home: const CadastroUser(), // Altere para a página que estiver mexendo
     );
   }
 }
