@@ -1,11 +1,11 @@
-import 'package:condotech/controllers/register_controller.dart';
+import 'package:condotech/controllers/user_controller.dart';
 import 'package:condotech/util/color.dart';
 import 'package:condotech/util/footer.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatelessWidget {
   Register({super.key});
-  final _registerController = RegisterController();
+  final _registerController = UserController();
 
   @override
   Widget build(BuildContext context) {

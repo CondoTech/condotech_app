@@ -1,9 +1,28 @@
+import 'package:condotech/controllers/user_controller.dart';
 import 'package:condotech/util/color.dart';
 import 'package:condotech/util/full_appbar.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  UserController userController = UserController();
+
+  void updatedState() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void initState() {
+    userController.getUserData();
+    userController.updateState = updatedState;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +51,10 @@ class Home extends StatelessWidget {
                     ),
                     onPressed: () => print("CONTA DO USER"),
                     child: const Icon(Icons.account_circle_outlined)),
-                const Text(
-                    style: TextStyle(fontSize: 24, fontFamily: "Mukta"),
-                    "Olá, Usuário"),
+                Text(
+                  style: TextStyle(fontSize: 24, fontFamily: "Mukta"),
+                  'Olá, ${userController.user['email']}',
+                ),
               ],
             ),
             const SizedBox(

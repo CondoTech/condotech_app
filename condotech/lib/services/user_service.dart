@@ -7,6 +7,16 @@ class UserService {
   final _userFirestore = FirebaseFirestore.instance.collection('user');
   final _authFirebase = FirebaseAuth.instance;
 
+  Future<User?> getCurrentUser() async {
+    try {
+      User? user = _authFirebase.currentUser;
+      return user;
+    } catch (e) {
+      print('Erro ao obter usuário atual: $e');
+      throw e;
+    }
+  }
+
   createUser(String email, String password) async {
     try {
       var user = await _authFirebase.createUserWithEmailAndPassword(

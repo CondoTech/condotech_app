@@ -20,6 +20,7 @@ class LoginController {
       var userMap = {
         'uid': credential.uid,
         'email': credential.email,
+        'username': credential.displayName
       };
       final sharedPreferences = await SharedPreferences.getInstance();
       await sharedPreferences.setString('user', jsonEncode(userMap));
