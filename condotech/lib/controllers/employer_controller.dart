@@ -1,14 +1,17 @@
+import 'package:condotech/models/employer.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../services/employer_service.dart';
 import '../util/error_alert.dart';
 
-class RegisterEmployerController {
+class EmployerController {
   final _serviceEmployer = EmployerService();
   final controllerName = TextEditingController();
   final controllerCpf = TextEditingController();
   final controllerService = TextEditingController();
   final controllerResponsible = TextEditingController();
+  VoidCallback? updateState;
+  List<dynamic> employerList = [];
 
   Future<void> createEmployer(BuildContext context) async {
     try {
@@ -26,6 +29,24 @@ class RegisterEmployerController {
       GeneralAlert().showErrorModal(context, () {
         Navigator.pop(context);
       }, 'Erro ao cadastrar usuário!', 0.05);
+    }
+  }
+
+  Future<void> getEmployers(BuildContext context) async {
+    try {
+      var fetchedEmployer = await _serviceEmployer.getEmployers();
+      if (fetchedEmployer != null) {
+        employerList = fetchedEmployer;
+        print(employerList);
+        updateState?.call();
+      } else {
+        employerList = [];
+      }
+    } catch (e) {
+      print(e);
+      GeneralAlert().showErrorModal(context, () {
+        Navigator.pop(context);
+      }, 'Erro ao buscar funcionários', 0.05);
     }
   }
 }

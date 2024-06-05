@@ -6,8 +6,8 @@ import 'package:flutter/cupertino.dart';
 
 class UserController {
   VoidCallback? updateState;
-  final _serviceUser = UserService();
   List<dynamic> users = [];
+  final _serviceUser = UserService();
 
   Future<void> getUsers(BuildContext context) async {
     try {

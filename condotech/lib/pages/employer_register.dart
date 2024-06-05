@@ -1,4 +1,4 @@
-import 'package:condotech/controllers/employer_register_controller.dart';
+import 'package:condotech/controllers/employer_controller.dart';
 import 'package:condotech/util/appbar.dart';
 import 'package:condotech/util/color.dart';
 import 'package:condotech/util/footer.dart';
@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class EmployerRegister extends StatelessWidget {
   EmployerRegister({super.key});
-  final registerEmployerController = RegisterEmployerController();
+  final registerEmployerController = EmployerController();
 
   @override
   Widget build(BuildContext context) {

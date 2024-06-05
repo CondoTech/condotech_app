@@ -25,7 +25,32 @@ class EmployerService {
         'createdAt': FieldValue.serverTimestamp(),
       });
     } catch (e) {
-      print('Erro ao criar empregador: $e');
+      print('Erro ao criar Funcionário: $e');
+      throw e;
+    }
+  }
+
+  dynamic getEmployers() async {
+    try {
+      QuerySnapshot querySnapshot = await _employerFirestore.get();
+      var allData = querySnapshot.docs.map((doc) => doc.data()).toList();
+      return allData;
+    } on FirebaseException catch (e) {
+      return e.message;
+    }
+  }
+
+  Future<DocumentSnapshot> getEmployerById(String employerId) async {
+    try {
+      DocumentSnapshot employerSnapshot =
+          await _employerFirestore.doc(employerId).get();
+
+      if (!employerSnapshot.exists) {
+        throw Exception('Funcionário não encontrado com o ID fornecido.');
+      }
+      return employerSnapshot;
+    } catch (e) {
+      print('Erro ao buscar Funcionário pelo ID: $e');
       throw e;
     }
   }
