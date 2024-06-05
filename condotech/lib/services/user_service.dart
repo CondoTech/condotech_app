@@ -17,16 +17,35 @@ class UserService {
     }
   }
 
-  createUser(String email, String password) async {
+  //Sindico cadastra usuário
+  Future<void> createUser(String cpf, String email, String username) async {
     try {
-      var user = await _authFirebase.createUserWithEmailAndPassword(
-          email: email, password: password);
-
-      await _userFirestore.doc(user.user!.uid).set({
+      await _userFirestore.add({
+        'cpf': cpf,
         'email': email,
+        'username': username,
+      });
+    } catch (e) {
+      print('Erro ao criar Usuário: $e');
+      throw e;
+    }
+  }
+
+  //Primeiro login, valida infos do sindico -> registra no firebase auth
+  createUserFirebase(String displayName, String email, String password) async {
+    try {
+      var userCredential = await _authFirebase.createUserWithEmailAndPassword(
+          email: email, password: password);
+      await userCredential.user!.updateDisplayName(displayName);
+
+      await _userFirestore.doc(userCredential.user!.uid).set({
+        'email': email,
+        'displayName': displayName, // Adiciona o nome de exibição
         'password': password,
         'date': DateTime.now().toIso8601String()
       });
+
+      return null; // Retorna nulo para indicar sucesso
     } on FirebaseException catch (e) {
       return e.message;
     }

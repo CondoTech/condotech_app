@@ -11,6 +11,7 @@ class UserController {
   final _serviceUser = UserService();
   final controllerCpf = TextEditingController();
   final controllerEmail = TextEditingController();
+  final controllerUsername = TextEditingController();
   final controllerPassword = TextEditingController();
   final controllerConfirmPassword = TextEditingController();
   // late User? user; // Variável para armazenar o usuário atual
@@ -23,32 +24,6 @@ class UserController {
     // user["name"] = jsonUser["username"];
     updateState!.call();
   }
-
-  // Future<void> getCurrentUser(BuildContext context) async {
-  //   try {
-  //     var fetchedUser = await _serviceUser.getCurrentUser();
-  //     print(fetchedUser);
-  //     // if (fetchedUser != null) {
-  //     //   Map<String, dynamic>? userData =
-  //     //       fetchedUser.data() as Map<String, dynamic>?;
-
-  //     //   if (userData != null) {
-  //     //     // Crie uma instância de User com os dados do usuário
-  //     //     user = User(
-  //     //       id: fetchedUser.uid,
-  //     //       username: userData['username'] as String? ?? '',
-  //     //       email: userData['email'] as String? ?? '',
-  //     //       password:
-  //     //           '', // Não é possível obter a senha do usuário atualmente logado
-  //     //       cpf: userData['cpf'] as String? ?? '',
-  //     //     );
-  //     //   }
-  //   } catch (e) {
-  //     GeneralAlert().showErrorModal(context, () {
-  //       Navigator.pop(context);
-  //     }, 'Erro ao buscar usuário', 0.05);
-  //   }
-  // }
 
   Future<void> getUsers(BuildContext context) async {
     try {
@@ -67,12 +42,15 @@ class UserController {
     }
   }
 
+  //Função chamada no primerio login (page/register) pra cadastrar com firebase auth
   Future<void> createUser(BuildContext context) async {
     if (verifyValidForm()) {
       try {
         var email = controllerEmail.text;
         var password = controllerPassword.text;
-        await _serviceUser.createUser(email, password);
+        var username = controllerUsername.text;
+        //TODO: Função que valida se o email inserido pelo usuário está cadastrado 9pelo sindico) na colection User
+        await _serviceUser.createUserFirebase(username, email, password);
 
         GeneralAlert().showErrorModal(context, () {
           Navigator.of(context).pushReplacementNamed('/login');
@@ -86,6 +64,24 @@ class UserController {
       GeneralAlert().showErrorModal(context, () {
         Navigator.pop(context);
       }, 'As senhas devem ser iguais!', 0.05);
+    }
+  }
+
+  //Função do sindico registrar um usuário
+  Future<void> registerUser(BuildContext context) async {
+    try {
+      var cpf = controllerCpf.text;
+      var username = controllerUsername.text;
+      var email = controllerEmail.text;
+      await _serviceUser.createUser(cpf, email, username);
+
+      GeneralAlert().showErrorModal(context, () {
+        Navigator.of(context).pushReplacementNamed('/home');
+      }, 'Usuário cadastrado com sucesso!', 0.05);
+    } catch (e) {
+      GeneralAlert().showErrorModal(context, () {
+        Navigator.pop(context);
+      }, 'Erro ao cadastrar usuário!', 0.05);
     }
   }
 
