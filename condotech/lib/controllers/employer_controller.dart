@@ -12,6 +12,7 @@ class EmployerController {
   final controllerResponsible = TextEditingController();
   VoidCallback? updateState;
   List<dynamic> employerList = [];
+  late Employer employer;
 
   Future<void> createEmployer(BuildContext context) async {
     try {
@@ -47,6 +48,35 @@ class EmployerController {
       GeneralAlert().showErrorModal(context, () {
         Navigator.pop(context);
       }, 'Erro ao buscar funcionários', 0.05);
+    }
+  }
+
+  Future<void> getEmployerById(BuildContext context, String employerId) async {
+    try {
+      var fetchedEmployer = await _serviceEmployer.getEmployerById(employerId);
+      if (fetchedEmployer.exists) {
+        Map<String, dynamic>? employerData =
+            fetchedEmployer.data() as Map<String, dynamic>?;
+        if (employerData != null) {
+          employer = Employer(
+            id: employerId,
+            name: employerData['name'] as String? ?? '',
+            cpf: employerData['cpf'] as String? ?? '',
+            service: employerData['service'] as String? ?? '',
+            responsible: employerData['responsible'] as String? ?? '',
+            createdBy: employerData['createdBy'] as String? ?? '',
+            createdAt: employerData['createdAt'] as String? ?? '',
+          );
+        }
+      } else {
+        GeneralAlert().showErrorModal(context, () {
+          Navigator.pop(context);
+        }, 'Erro ao buscar empregador', 0.05);
+      }
+    } catch (e) {
+      GeneralAlert().showErrorModal(context, () {
+        Navigator.pop(context);
+      }, 'Erro ao buscar empregador', 0.05);
     }
   }
 }
