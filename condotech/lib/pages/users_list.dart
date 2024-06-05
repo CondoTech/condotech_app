@@ -1,4 +1,5 @@
 import 'package:condotech/controllers/user_controller.dart';
+import 'package:condotech/pages/employer_register.dart';
 import 'package:condotech/util/appbar.dart';
 import 'package:condotech/util/color.dart';
 import 'package:condotech/util/footer.dart';
@@ -23,7 +24,6 @@ class _UsersListState extends State<UsersList> {
   void initState() {
     userController.getUsers(context);
     userController.updateState = updatedState;
-
     super.initState();
   }
 

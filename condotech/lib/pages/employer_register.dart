@@ -1,3 +1,4 @@
+import 'package:condotech/controllers/employer_register_controller.dart';
 import 'package:condotech/util/appbar.dart';
 import 'package:condotech/util/color.dart';
 import 'package:condotech/util/footer.dart';
@@ -5,7 +6,8 @@ import 'package:condotech/util/text.dart';
 import 'package:flutter/material.dart';
 
 class EmployerRegister extends StatelessWidget {
-  const EmployerRegister({super.key});
+  EmployerRegister({super.key});
+  final registerEmployerController = RegisterEmployerController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +38,20 @@ class EmployerRegister extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         smallTextBold("Nome:"),
-                        TextFormField(),
+                        TextFormField(
+                          controller: registerEmployerController.controllerName,
+                        ),
                         const SizedBox(height: 20),
                         smallTextBold("CPF:"),
-                        TextFormField(),
+                        TextFormField(
+                          controller: registerEmployerController.controllerCpf,
+                        ),
                         const SizedBox(height: 20),
                         smallTextBold("Serviço:"),
-                        TextFormField(),
+                        TextFormField(
+                          controller:
+                              registerEmployerController.controllerService,
+                        ),
                         const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -97,7 +106,9 @@ class EmployerRegister extends StatelessWidget {
                   borderRadius: BorderRadius.circular(9.0),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                registerEmployerController.createEmployer(context);
+              },
               child: smallTextBold("Cadastrar", fontColor: Colors.white),
             ),
             const SizedBox(height: 35),

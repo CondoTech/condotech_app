@@ -19,7 +19,7 @@ Map<String, WidgetBuilder> routes() {
     '/perfil': (context) => const Perfil(), //user entra pra ver perfil
     '/register': (context) => Register(),
     '/info': (context) => const EmployerInfo(),
-    '/employer-register': (context) => const EmployerRegister(),
+    '/employer-register': (context) => EmployerRegister(),
     '/employer-info': (context) => const EmployerInfo(),
     '/employers': (context) => const EmployersList(),
     '/users': (context) => const UsersList(),

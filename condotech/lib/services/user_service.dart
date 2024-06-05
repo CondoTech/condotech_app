@@ -5,11 +5,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserService {
   final _userFirestore = FirebaseFirestore.instance.collection('user');
-  final _authFibase = FirebaseAuth.instance;
+  final _authFirebase = FirebaseAuth.instance;
 
   createUser(String email, String password) async {
     try {
-      var user = await _authFibase.createUserWithEmailAndPassword(
+      var user = await _authFirebase.createUserWithEmailAndPassword(
           email: email, password: password);
 
       await _userFirestore.doc(user.user!.uid).set({
@@ -34,8 +34,8 @@ class UserService {
 
   dynamic login(String email, String password) async {
     try {
-      UserCredential credential = await _authFibase.signInWithEmailAndPassword(
-          email: email, password: password);
+      UserCredential credential = await _authFirebase
+          .signInWithEmailAndPassword(email: email, password: password);
       User? user = credential.user;
       var userLoggad = user?.uid;
       DocumentSnapshot documentSnapshot =
