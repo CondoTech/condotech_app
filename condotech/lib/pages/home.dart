@@ -31,17 +31,16 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Paleta.bgColor,
-      appBar: AppBar(
-        title: FullAppBar(context),
         backgroundColor: Paleta.bgColor,
-        centerTitle: true,
-        automaticallyImplyLeading: false, // Remova o botão de voltar
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
+        appBar: AppBar(
+          title: FullAppBar(context),
+          backgroundColor: Paleta.bgColor,
+          centerTitle: true,
+          automaticallyImplyLeading: false, // Remova o botão de voltar
+        ),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(children: [
               // Infos do user
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -54,7 +53,12 @@ class _HomeState extends State<Home> {
                       shape: CircleBorder(),
                       foregroundColor: Paleta.lilas,
                     ),
-                    onPressed: () => print("CONTA DO USER"),
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/user-info',
+                      );
+                    },
                     child: const Icon(Icons.account_circle_outlined),
                   ),
                   Text(
@@ -191,7 +195,12 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(9)),
                               foregroundColor: Paleta.lilas,
                             ),
-                            onPressed: () => print("Foi para reserva"),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                '/reserve',
+                              );
+                            },
                             icon: Icon(Icons.handshake_outlined),
                           ),
                           Text("Reservar"),
@@ -343,18 +352,8 @@ class _HomeState extends State<Home> {
               Column(
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(left: 45, top: 20),
-                    child: const Row(
-                      children: [
-                        Text(
-                          "Calendário",
-                          style: TextStyle(fontFamily: "Mukata", fontSize: 18),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.all(16.0),
+                    color: Paleta.bgColor,
+                    padding: EdgeInsets.all(16),
                     child: TableCalendar(
                       firstDay: DateTime.utc(2010, 10, 16),
                       lastDay: DateTime.utc(2030, 3, 14),
@@ -366,9 +365,9 @@ class _HomeState extends State<Home> {
                       onDaySelected: (selectedDay, focusedDay) {
                         setState(() {
                           _selectedDay = selectedDay;
-                          _focusedDay =
-                              focusedDay; // update `_focusedDay` here as well
+                          _focusedDay = focusedDay;
                         });
+                        Navigator.pushNamed(context, '/reserve');
                       },
                       onFormatChanged: (format) {
                         if (_calendarFormat != format) {
@@ -378,16 +377,16 @@ class _HomeState extends State<Home> {
                         }
                       },
                       onPageChanged: (focusedDay) {
-                        _focusedDay = focusedDay;
+                        setState(() {
+                          _focusedDay = focusedDay;
+                        });
                       },
                     ),
                   ),
                 ],
               ),
-            ],
+            ]),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

@@ -9,38 +9,45 @@ class UserDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Paleta.azulEscuro,
-        title:
-            const Text("Detalhes User", style: TextStyle(color: Colors.white)),
+        toolbarHeight: 75,
         centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
         actions: [
           IconButton(
-            icon: Icon(Icons.help_outline),
-            onPressed: () {
-              // Adicionar ação de ajuda
-            },
+            onPressed: () {},
+            icon: const Icon(Icons.question_mark),
+            color: Paleta.bgColor,
           ),
         ],
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
+              '/home', (Route<dynamic> route) => false),
+          icon: const Icon(Icons.arrow_back),
+          color: Paleta.bgColor,
+        ),
+        title: const Text(
+          'Conta',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(62, 50, 62, 35),
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 35),
                 child: Column(
                   children: [
                     Image.asset(
                       "assets/images/logo.png",
-                      width: 100,
-                      height: 100,
+                      width: 60,
+                      height: 60,
                     ),
-                    SizedBox(height: 25),
-                    CircleAvatar(
+                    const SizedBox(height: 25),
+                    const CircleAvatar(
                       radius: 50,
                       backgroundImage: AssetImage(
                           "assets/images/user_photo.png"), // Adicione a foto do usuário aqui

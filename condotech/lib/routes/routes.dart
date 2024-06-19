@@ -11,7 +11,7 @@ import 'package:condotech/pages/login.dart';
 import 'package:condotech/pages/home.dart';
 import 'package:condotech/pages/nfe.dart';
 import 'package:condotech/pages/perfil.dart';
-import 'package:condotech/pages/user_info_edit.dart';
+import 'package:condotech/pages/reserva.dart';
 import 'package:condotech/pages/users_list.dart';
 import 'package:flutter/cupertino.dart';
 import '../pages/register.dart';
@@ -20,7 +20,7 @@ Map<String, WidgetBuilder> routes() {
   return {
     '/': (context) => const Login(),
     '/login': (context) => const Login(),
-    '/home': (context) => const Home(),
+    '/home': (context) => Home(),
     '/perfil': (context) => const Perfil(), //user entra pra ver perfil
     '/register': (context) => Register(),
     '/info': (context) => const EmployerInfo(),
@@ -30,8 +30,7 @@ Map<String, WidgetBuilder> routes() {
     '/users': (context) => const UsersList(),
     '/user-register': (context) => CadastroUser(),
     '/user-info': (context) => const UserDetails(), // sindico
-    '/user-edit': (context) => const UserInfoEdit(),
-    // '/details-bank': (context) => BankStatementDetails(),
+    '/reserve': (context) => ReservationListPage(),
     '/bank': (context) => const BankStatement(),
     '/nfe': (context) => const Nfe(),
     '/faq': (context) => const FaqScreen(),

@@ -7,6 +7,8 @@ AppBar FullAppBar(BuildContext context) {
     elevation: 0,
     backgroundColor: Paleta.bgColor,
     toolbarHeight: 85,
+    automaticallyImplyLeading: false, // Oculta o botão de voltar
+
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
