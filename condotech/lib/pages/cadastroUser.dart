@@ -1,33 +1,38 @@
+import 'package:condotech/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:condotech/util/color.dart';
 
 class CadastroUser extends StatelessWidget {
-  const CadastroUser({Key? key}) : super(key: key);
+  CadastroUser({Key? key}) : super(key: key);
+  final userController = UserController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Paleta.azulEscuro,
-        title: const Text(
-          'Cadastro de Usuário',
-          style: TextStyle(color: Colors.white),
-        ),
+        toolbarHeight: 75,
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.help),
-            onPressed: () {
-              // Adicione aqui a lógica para a ajuda
-            },
+            onPressed: () {},
+            icon: const Icon(Icons.question_mark),
+            color: Paleta.bgColor,
           ),
         ],
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
+              '/home', (Route<dynamic> route) => false),
+          icon: const Icon(Icons.arrow_back),
+          color: Paleta.bgColor,
+        ),
+        title: const Text(
+          'Cadastro de Usuários',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -46,8 +51,19 @@ class CadastroUser extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              controller: userController.controllerUsername,
+              decoration: const InputDecoration(
+                labelText: 'Nome de usuário',
+                hintText: 'Digite seu nome',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.emailAddress,
+            ),
+            const SizedBox(height: 20),
+            TextField(
+              controller: userController.controllerEmail,
+              decoration: const InputDecoration(
                 labelText: 'E-mail',
                 hintText: 'Digite seu e-mail',
                 border: OutlineInputBorder(),
@@ -55,23 +71,27 @@ class CadastroUser extends StatelessWidget {
               keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 20),
-            const TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: 'Senha',
-                hintText: 'Digite sua senha',
+            TextField(
+              controller: userController.controllerCpf,
+              decoration: const InputDecoration(
+                labelText: 'CPF',
+                hintText: 'Digite seu CPF',
                 border: OutlineInputBorder(),
               ),
+              keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Adicione aqui a lógica para cadastrar o usuário
+                userController.registerUser(context);
               },
-              child: const Text('Cadastrar'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Paleta.azulEscuro,
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
+              ),
+              child: const Text(
+                'Cadastrar',
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ],
@@ -79,11 +99,11 @@ class CadastroUser extends StatelessWidget {
       ),
       bottomNavigationBar: BottomAppBar(
         color: Paleta.azulEscuro,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+        child: const Padding(
+          padding: EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 '©️ 2023 CondoTech',
                 style: TextStyle(color: Colors.white),

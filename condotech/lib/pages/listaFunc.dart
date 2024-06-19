@@ -1,22 +1,31 @@
+import 'package:condotech/controllers/employer_controller.dart';
 import 'package:condotech/util/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:condotech/util/color.dart';
 
-class EmployeeList extends StatelessWidget {
+class EmployeeList extends StatefulWidget {
   const EmployeeList({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // Lista de exemplos de funcionários
-    final List<Map<String, String>> employees = [
-      {"name": "João Silva", "service": "Eletricista"},
-      {"name": "Maria Santos", "service": "Encanadora"},
-      {"name": "Carlos Souza", "service": "Pintor"},
-      {"name": "Ana Oliveira", "service": "Faxineira"},
-      {"name": "Pedro Almeida", "service": "Jardineiro"},
-      {"name": "Juliana Pereira", "service": "Segurança"},
-    ];
+  State<EmployeeList> createState() => _EmployeeListState();
+}
 
+class _EmployeeListState extends State<EmployeeList> {
+  EmployerController employerController = EmployerController();
+
+  void updatedState() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void initState() {
+    employerController.getEmployers(context);
+    employerController.updateState = updatedState;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Paleta.azulEscuro,
@@ -25,16 +34,10 @@ class EmployeeList extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
+              '/home', (Route<dynamic> route) => false),
+          color: Paleta.bgColor,
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.help_outline),
-            onPressed: () {
-              // Adicionar ação de ajuda
-            },
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -72,22 +75,22 @@ class EmployeeList extends StatelessWidget {
                         ),
                         foregroundColor: Colors.black,
                       ),
-                      onPressed: () {
-                        // Navegar para a tela de cadastro de novo funcionário
-                      },
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed('/employer-register'),
                       child: Text("Novo Cadastro"),
                     ),
                     SizedBox(height: 25),
                     GridView.builder(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         childAspectRatio: 3 / 4,
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 10,
                       ),
-                      itemCount: employees.length,
+                      itemCount: employerController.employerList.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -101,14 +104,15 @@ class EmployeeList extends StatelessWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                CircleAvatar(
+                                const CircleAvatar(
                                   radius: 40,
                                   backgroundImage: AssetImage(
                                       "assets/images/user_photo.png"),
                                 ),
                                 SizedBox(height: 10),
                                 Text(
-                                  employees[index]["name"]!,
+                                  employerController.employerList[index]
+                                      ["name"]!,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -117,7 +121,8 @@ class EmployeeList extends StatelessWidget {
                                 ),
                                 SizedBox(height: 5),
                                 Text(
-                                  employees[index]["service"]!,
+                                  employerController.employerList[index]
+                                      ["service"]!,
                                   style: TextStyle(
                                     fontSize: 14,
                                   ),

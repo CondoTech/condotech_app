@@ -1,7 +1,5 @@
-import 'package:condotech/util/appbar.dart';
 import 'package:condotech/util/color.dart';
 import 'package:condotech/util/footer.dart';
-import 'package:condotech/util/full_appbar.dart';
 import 'package:condotech/util/text.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +23,8 @@ class Nfe extends StatelessWidget {
           ),
         ],
         leading: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
+              '/home', (Route<dynamic> route) => false),
           icon: Icon(Icons.arrow_back),
           color: Paleta.azulEscuro,
         ),
@@ -76,6 +75,23 @@ class Nfe extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            const SizedBox(height: 20),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Título',
+                hintText: 'Digite o título',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 40),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Valor',
+                hintText: 'Digite o valor',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.number,
             ),
           ],
         ),

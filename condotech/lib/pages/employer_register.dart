@@ -12,7 +12,30 @@ class EmployerRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MinAppBar(),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Paleta.bgColor,
+        toolbarHeight: 75,
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.question_mark),
+            color: Paleta.azulEscuro,
+          ),
+        ],
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
+              '/employers', (Route<dynamic> route) => false),
+          icon: const Icon(Icons.arrow_back),
+          color: Paleta.azulEscuro,
+        ),
+        title: Image.asset(
+          'assets/images/logo.png',
+          fit: BoxFit.contain,
+          height: 50,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

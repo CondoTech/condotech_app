@@ -43,7 +43,8 @@ class _UsersListState extends State<UsersList> {
           ),
         ],
         leading: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
+              '/home', (Route<dynamic> route) => false),
           icon: const Icon(Icons.arrow_back),
           color: Paleta.azulEscuro,
         ),
